@@ -74,7 +74,7 @@ if __name__ == '__main__':
     accur = np.sum(np.array(Ypred) == np.array(test_data[b'labels'][:top_num])) / len(Ypred)
     t3 = time.time()
     print(f'数据集长度：{len(train_data[b"data"])}')
-    print(f'数据集长度：{len(test_data[b"data"])}')
+    print(f'验证集长度：{len(test_data[b"data"])}')
     print(f'训练消耗：{t2-t1}s')
     print(f'预测消耗：{t3-t2}s')
     print(f'准确率：{accur*100}%')

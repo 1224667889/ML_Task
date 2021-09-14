@@ -5,7 +5,7 @@ import numpy as np
 import os
 import pandas as pd
 from sklearn.metrics import accuracy_score, normalized_mutual_info_score, adjusted_rand_score
-
+from lesson_4.utils import cluster_acc
 
 photo_name = []
 imgs = os.listdir('face_images/imgs')
@@ -40,8 +40,8 @@ def draw():
     plt.show()
 
 
-def Kms(imgs):
-    clf = KMeans(n_clusters=10)
+def Kms(imgs, n_clusters):
+    clf = KMeans(n_clusters=n_clusters)
     clf.fit(imgs)
     y_predict = clf.predict(imgs)
     centers = clf.cluster_centers_
@@ -50,13 +50,17 @@ def Kms(imgs):
 
 
 if __name__ == '__main__':
-    result, y_predict = Kms(photos)
+    for i in range(1, 9):
+        import time
+        t = time.time()
+        result, y_predict = Kms(photos, 10)
+        print(i, time.time() - t)
 
     # 输出值
-    ACC = accuracy_score(y, y_predict)
+    ACC = cluster_acc(y, y_predict)
     NMI = normalized_mutual_info_score(y, y_predict)
     ARI = adjusted_rand_score(y, y_predict)
-    print(f"ACC = {0.9} NMI = {NMI} ARI= {ARI}")
+    print(f"ACC = {ACC} NMI = {NMI} ARI= {ARI}")
 
     # 绘制图像
     fig, ax = plt.subplots(nrows=10, ncols=20, sharex=True, sharey=True, figsize=[10, 5], dpi=80)
