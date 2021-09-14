@@ -53,7 +53,7 @@ if __name__ == '__main__':
     for i in range(1, 9):
         import time
         t = time.time()
-        result, y_predict = Kms(photos, 10)
+        result, y_predict = Kms(photos, i)
         print(i, time.time() - t)
 
     # 输出值
