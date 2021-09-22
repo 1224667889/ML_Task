@@ -41,9 +41,9 @@ def createDatabase(path, image_size=40, image_column=10, image_row=10):
     x = []
     y = []
     for i, p in enumerate(imgs):
-        img = Image.open(f'./{path}/{p}').resize((image_size, image_size), Image.ANTIALIAS)
+        img = Image.open(f'{path}/{p}').resize((image_size, image_size), Image.ANTIALIAS)
         to_image.paste(img, ((i % 80) * image_size, (i // 80) * image_size))
-        image = cv2.imread(f'./{path}/{p}').astype(np.float32)
+        image = cv2.imread(f'{path}/{p}').astype(np.float32)
         image = cv2.resize(image, (180, 200))
         image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
         x.append(image)
