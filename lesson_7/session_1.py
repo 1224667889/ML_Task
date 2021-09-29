@@ -43,27 +43,15 @@ def cul(X, labels, title):
 
 
 if __name__ == '__main__':
-    # X, labels = face_dataset()
-    # X = X.reshape(X.shape[0], 200 * 180)
-    # cul(X, labels, "faces")
-    #
-    # digits = load_digits()
-    # X = digits.data
-    # labels = digits.target
-    # cul(X, labels, "digits")
-    #
-    # X, labels, _ = utils.createDatabase("../lesson_5/17flowers")
-    # X = X.reshape(X.shape[0], 200 * 180)
-    # cul(X, labels, "17flowers")
-    print('''------------------------------faces------------------------------
-KNN 训练消耗：0.0009953975677490234s	预测消耗：0.03288698196411133s	准确率：100.0%
-NaiveBayes 训练消耗：0.05487775802612305s	预测消耗：0.10073065757751465s	准确率：100.0%
-LogisticRegression 训练消耗：1.9667131900787354s	预测消耗：0.003989458084106445s	准确率：100.0%
-------------------------------digits------------------------------
-KNN 训练消耗：0.0010228157043457031s	预测消耗：0.014956474304199219s	准确率：98.88888888888889%
-NaiveBayes 训练消耗：0.0009953975677490234s	预测消耗：0.0009775161743164062s	准确率：82.22222222222221%
-LogisticRegression 训练消耗：0.09575295448303223s	预测消耗：0.001013040542602539s	准确率：97.22222222222221%
-------------------------------17flowers------------------------------
-KNN 训练消耗：0.03091740608215332s	预测消耗：0.8118228912353516s	准确率：20.22058823529412%
-NaiveBayes 训练消耗：0.2832474708557129s	预测消耗：1.4531168937683105s	准确率：29.77941176470588%
-LogisticRegression 训练消耗：14.897114515304565s	预测消耗：0.034906864166259766s	准确率：29.044117647058826%''')
+    X, labels = face_dataset()
+    X = X.reshape(X.shape[0], 200 * 180)
+    cul(X, labels, "faces")
+
+    digits = load_digits()
+    X = digits.data
+    labels = digits.target
+    cul(X, labels, "digits")
+
+    X, labels, _ = utils.createDatabase("../lesson_5/17flowers")
+    X = X.reshape(X.shape[0], 200 * 180)
+    cul(X, labels, "17flowers")
